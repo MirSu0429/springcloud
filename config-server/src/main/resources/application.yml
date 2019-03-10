@@ -1,0 +1,41 @@
+server:
+  port: 8010
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+#    publisher-confirms: true
+ #   virtual-host: /
+  application:
+    name: config-server
+#  profiles:
+ #   active: server1
+  cloud:
+    config:
+    #  label: master
+      server:
+        git:
+          uri: https://github.com/MirSu0429/config-server-git.git
+     #     username:
+      #    password:
+    #      searchPaths: '{profile}'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+#是否需要权限拉去，默认是true,如果不false就不允许你去拉取配置中心Server更新的内容
+management:
+  endpoints:                  #SpringCloud 2.0.0版本以后暴露接口方式
+    web:
+      exposure:
+        include: "*"
+
+security:                       #是否开启基本的鉴权，默认为true
+  basic:
+    enabled: false
+

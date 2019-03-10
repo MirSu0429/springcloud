@@ -1,0 +1,12 @@
+GET http://localhost:8770/{api/test2}
+
+###
+
+GET http://localhost:8780/{%20/api/test}
+
+###
+
+GET http://localhost:8780/{%20/api/test2}
+
+###
+

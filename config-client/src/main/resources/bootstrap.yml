@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8010
+      profile: test #在项目名称后面-dev的内容，简介。
+      label: master  #当configserver的后端存储是Git时，默认是master
+  #  bus:
+  #    refresh:
+  #      enabled: true
+  application:
+    name: application #会在git上找和name相同的配置文件，如果找不到，就是默认的配置文件。
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
+    virtual-host: /
+#是否需要权限拉去，默认是true,如果不false就不允许你去拉取配置中心Server更新的内容
+management:
+  endpoints:                  #SpringCloud 2.0.0版本以后暴露接口方式
+    web:
+      exposure:
+        include: "*"
+
+security:                       #是否开启基本的鉴权，默认为true
+  basic:
+    enabled: false

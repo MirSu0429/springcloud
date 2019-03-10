@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+
+zuul:
+  routes:
+    api-a:
+      prefix: /api
+      path: /**
+      stripPrefix: false
+      serviceId: springcloud-server
+    api-b:
+      path: /cust/**
+      stripPrefix: false
+      serviceId: springcloud-customer
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
